@@ -1,0 +1,5 @@
+<u><i></i></u> : mention || sous-titre+négation
+<b></b> : déduc.*, sous-titre
+<i></i> : précision
+<u><b></b></u> : exception var
+<u></u> : exception

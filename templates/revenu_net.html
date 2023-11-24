@@ -1,0 +1,240 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  main{
+    margin:1rem;
+  }
+  .card{
+    margin-bottom:1rem;
+    margin-top:1rem;
+  }
+</style>
+<h1>import revenu_net</h1>
+<h2>Class RevenuNet</h2>
+<h3>Constructors</h3>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Constructor and Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#revenu_net">RevenuNet()</a><br>Instancier un objet <a href="#revenu_net">RevenuNet</a>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Method Summary</h3>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col" class="w-25">Modifier and Type</th>
+      <th scope="col">Method and Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Double</td>
+      <td><a href="#a">a(double revenu_net_emploi = 0, double revenu_entreprise = 0, double revenu_agricole = 0, double revenu_interet = 0, double revenu_dividende = 0, double pension_ex = 0, double ferr = 0, double psv = 0, double rpa = 0, double rrq = 0, double montant_fractionne = 0, double prestation_retraite = 0, double allocation_depart_retraite = 0, double prestation_consecutive_deces = 0, double police_ass = 0, double bourse_etude = 0)</a><br>La pension reçue de l'ex-conjoint(e), les sommes reçues d'un fonds enregistré de revenu de retraite, les prestations de la sécurité de la vieillesse, le régime de pension agréé ou le déclarer à <i><a href="/revenu_brut#sb">sb</a> ou <a href="/revenu_brut#rbe">rbe</a></i>, le régime de rente du Québec ou le déclarer à <i><a href="/revenu_brut#sb">sb</a></i>, le pourcentage 1 étant 100%, une prestation de retraite <i>56(1)a(i)</i>, une allocation de départ à la retraite <i>56(1)a(ii)</i>, une prestation consécutive au décès, une police d'assurance-vie <u><i><b>non imposable</b></i></u>, bourses d'étude exonérées de l'impôt lorsqu'elles sont reçues par un étudiant <u><i><b>non imposable</b></i></u>.</td>
+    </tr>
+    <tr>
+      <td>Double</td>
+      <td><a href="#b">b(double gain_capital_imposable = 0, double perte_capital_deductible = 0, double perte_placement = 0)</a><br><i>Les PDTPE sont des pertes en capital déductibles à l'alinéa 3d et non à l'alinéa 3b.</i><br><i>Les PDTPE <u>ne</u> peuvent <u>pas</u> être plus élevés que les pertes en capital déductibles.</i></td>
+    </tr>
+    <tr>
+      <td>Double</td>
+      <td><a href="#c">c(double autres = 0, double pension_ex = 0, double frais_exploration = 0, double frais_opposition = 0, double frais_demenagement = 0, double montant_fractionne = 0.0, double frais_proc_ass_emploi = 0, double prestation_consecutive_deces = 0, double reer = 0, double frais_scolarite = 0, double vetement = 0, double prime_ass_vie_med_dent = 0, double frais_prep_declaration = 0)</a><br>Les versements à un REER <i>Régime épargne enregistré retraite</i>, la pension donnée à l'ex-conjoint(e), les frais d'exploration et d'aménagement <i>en vertu de l'article 66.1</i>, </td>
+    </tr>
+    <tr>
+      <td>Double</td>
+      <td><a href="#bure">bure(double fourn_cons = 0, double loyer_bureau = 0, int mois = 0, double salaire_adjoint = 0)</a><br>Les dépenses de bureau <b>déductibles</b>. <i>Viens après le calcul rbe.</i><br>Fourniture consomméee (Papetrie), loyer de bureau annuel <u>à déclarer avec <b>mois</b></u>, salaire d'un adjoint annuel.</td>
+    </tr>
+    <tr>
+      <td>Double</td>
+      <td><a href="#dah">dah(double depense_ext = 0, double cot_syndic = 0, double rpa = 0, double bureau_centre_ville = 0, double cot_professionnelle = 0, double don = 0, double frais_cartes_affaires = 0)</a><br>Dépenses à l'extérieur de l'établissement Hébergement Transport autre que la voiture encourus pour le compte de l'employeur alors que l'employé était à l'extérieur de l'établissement, la cotisation syndicale, paiement au régime de pension agréé, les dépenses de bureau <i>utiliser <a href="#bure">bure</a></i>, la cotisation professionnelle, les dons sont <u><b>non déductibles</b></u>, les frais de cartes d'affaires sont <u><b>non déductibles</b></u>.<br><i>Mention <u>obligatoire</u> après la fonction <a href="#rbe">rbe</a></i>.</td>
+    </tr>
+    <tr>
+      <td>Double</td>
+      <td><a href="#dahv">dahv(double telephone_bureau_centre_ville = 0, double publicite = 0, double location_ordi = 0)</a><br>Frais de téléphonie aux fins d'affaires, publicité, location d'ordinateur.<br><i>Dépenses limités aux revenus de commissions</i>.<br><i>Complémentaire à <a href="#dah">dah</a></i>.</td>
+    </tr>
+    <tr>
+      <td>Double</td>
+      <td><a href="#calcul">calcul()</a><br><b>Combinaisons possibles:</b><br><ul><li>Avantage imposable pour droit d'usage et avantage relatif au fonctionnement</li><li>Avantage imposable pour droit d'usage et frais de fonctionnement <b>déductible</b></li>
+      <li>Avantage relatif au fonctionnement et amortissement et intérêts sur prêt automobile <b>déductible</b></li></ul></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<div class="card" id="revenu_net">
+  <div class="card-header">
+    RevenuNet
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">RevenuNet()<br><pre>class RevenuNet:  
+    def __init__(self):
+      self.revenu = 0
+      self.gain_perte = 0
+      self.deduction = 0
+      self.perte_entreprise = 0
+
+      self.perte_placement = 0
+      self.rpa = 0
+      self.beneficiaire = 0
+      self.frais_demenagement = 0
+      self.psv = 0
+      self.revenu_net = 0</pre></li>
+  </ul>
+</div>
+
+<div class="card" id="a">
+  <div class="card-header">
+    a # alinéa 3a) le revenu net d'emploi
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">a(revenu_net_emploi=52000, revenu_entreprise=2000, revenu_interet=100, revenu_dividende=800, pension_ex=6000, ferr=400) # 203<br><pre>def a(self, revenu_net_emploi = 0, revenu_entreprise = 0, revenu_agricole = 0, revenu_interet = 0, revenu_dividende = 0, pension_ex = 0, ferr = 0, psv = 0, rpa = 0, rrq = 0, montant_fractionne = 0, prestation_retraite = 0, allocation_depart_retraite = 0, prestation_consecutive_deces = 0, police_ass = 0, bourse_etude = 0):
+    police_ass = 0
+    bourse_etude = 0
+    self.rpa = rpa
+    self.psv = psv
+    prestation_consecutive_deces = prestation_consecutive_deces-self.dd([prestation_consecutive_deces]) if prestation_consecutive_deces - self.dd([prestation_consecutive_deces]) > 0 else 0
+    self.revenu = revenu_net_emploi + revenu_entreprise + revenu_agricole + revenu_interet + revenu_dividende+int(revenu_dividende*0.15) + pension_ex + ferr + self.psv + self.rpa + rrq + montant_fractionne + prestation_retraite + allocation_depart_retraite + prestation_consecutive_deces
+    return self.revenu</pre></li>
+  </ul>
+</div>
+
+<div class="card" id="b">
+  <div class="card-header">
+    b # alinéa 3b) les gains en capital imposables et les gains nets sur biens meubles entrent dans le calcul du revenu net
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      b(gain_capital_imposable=650, perte_capital_deductible=7500, perte_placement=7500) # 201a
+      <pre>def b(self, gain_capital_imposable = 0, perte_capital_deductible = 0, perte_placement = 0):
+      self.perte_placement = perte_placement
+      self.gain_perte = gain_capital_imposable - (perte_capital_deductible - perte_placement)
+      if self.gain_perte < 0:
+        if perte_placement > 0:
+          print("[INFO] revenu_net.RevenuNet.b Perte en capital", perte_capital_deductible - perte_placement-gain_capital_imposable, "à reporter")
+        else:
+          print("[INFO] revenu_net.RevenuNet.b Perte en capital", self.gain_perte*-1, "à reporter")
+        self.gain_perte = 0
+        return self.gain_perte
+      else:
+        return self.gain_perte </pre></li>
+  </ul>
+</div>
+
+<div class="card" id="c">
+  <div class="card-header">
+    rbe # revenu brut emploi
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      c(frais_proc_ass_emploi=500,pension_ex=15000, frais_scolarite=2000) # 243
+      <pre>def c(self, autres = 0, pension_ex = 0, frais_exploration = 0, frais_opposition = 0, frais_demenagement = 0, montant_fractionne = 0.0, frais_proc_ass_emploi = 0, prestation_consecutive_deces = 0, reer = 0, frais_scolarite = 0, vetement = 0, prime_ass_vie_med_dent = 0, frais_prep_declaration = 0):
+      if not frais_demenagement == 0:
+        self.frais_demenagement = frais_demenagement
+      if frais_scolarite > 0:
+        print("[INFO] revenu_net.RevenuNet.c crédit d'impôt pour frais de scolarité", frais_scolarite)
+        frais_scolarite = 0
+      if montant_fractionne > 0:
+        montant_fractionne = self.rpa * montant_fractionne
+      b = self.revenu + self.gain_perte
+      pension_ex = reporter("c", "Pension alimentaire de l'ex-conjoint", 0, pension_ex, b)
+      frais_exploration = reporter("c", "Frais d'exploration", 1, frais_exploration, b)
+      frais_opposition = reporter("c", "Frais d'opposition", 1, frais_opposition, b)
+      self.frais_demenagement = reporter("c", "Frais de déménagement", 1, self.frais_demenagement, b)
+      montant_fractionne = reporter("c", "Montant fractionné", 1, montant_fractionne, b)
+      frais_proc_ass_emploi = reporter("c", "Frais d'appel en matière d'assurance-emploi", 1, frais_proc_ass_emploi, b)
+      prestation_consecutive_deces = reporter("c", "Prestation consécutive au décès", 1, prestation_consecutive_deces, b)
+      reer = reporter("c", "Contribution au REER", 1, reer, b)
+      self.deduction = autres + pension_ex + frais_exploration + frais_opposition + self.frais_demenagement + montant_fractionne + frais_proc_ass_emploi + prestation_consecutive_deces + reer
+      if 0.15*(b-self.deduction-77580) > 0 and not self.psv == 0:
+        tmp = self.psv
+        self.psv = 0.15*(b-self.deduction-77580)
+        if self.psv > tmp:
+            self.psv = tmp
+      else:
+        self.psv = 0
+      self.psv = reporter("c", "Prestation de service vieillesse", 1, self.psv, b)
+      self.deduction += self.psv
+      return self.deduction</pre></li>
+  </ul>
+</div>
+
+<div class="card" id="d">
+  <div class="card-header">
+    bure # bureau
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      bure(fourn_cons=500, loyer_bureau=600, mois=12, salaire_adjoint=5000) # 229
+      <br>
+      <pre>def bure(self, fourn_cons = 0, loyer_bureau = 0, mois = 0, salaire_adjoint = 0):
+      self.bureau = fourn_cons + loyer_bureau * mois + salaire_adjoint
+      return self.bureau</pre></li>
+  </ul>
+</div>
+
+<div class="card" id="dah">
+  <div class="card-header">
+    dah # déduction selon l'article 8
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      dah(rpa=1100, cot_syndic=150, cot_professionnelle=700, frais_cartes_affaires=230) # 231
+      <br>
+      <pre>def dah(self, depense_ext = 0, cot_syndic = 0, rpa = 0, bureau_centre_ville = 0, cot_professionnelle = 0, don = 0, frais_cartes_affaires = 0):
+      if not bureau_centre_ville == 0:
+          self.bureau = bureau_centre_ville
+      self.deduction_article_huit = depense_ext + cot_syndic + rpa + self.bureau + cot_professionnelle
+      if self.patron_frais_deplacement == 0:
+          self.deduction_article_huit+= self.cauto.deductible_amort_interet_pret
+      if not self.patron_frais_deplacement == 0:
+          self.cauto.deduction_frais_fonctionnement = 0
+      if self.est_vendeur == False:
+          self.frais_representation = 0
+          self.membre_commerce = 0
+          self.deduction_article_huit+= self.cauto.deduction_frais_fonctionnement + self.frais_repas*0.5 + self.hebergement + self.frais_stationnement + self.frais_representation + self.membre_commerce
+      return self.deduction_article_huit</pre></li>
+  </ul>
+</div>
+
+<div class="card" id="dahv">
+  <div class="card-header">
+    dahv # déduction selon l'article 8 pour un vendeur à commission
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      dahv(publicite=2500, location_ordi=875) # 233
+      <br>
+      <pre>def dahv(self, telephone_bureau_centre_ville = 0, publicite = 0, location_ordi = 0):
+      self.deduction_article_huit_vendeur = telephone_bureau_centre_ville + publicite + location_ordi
+      if self.est_vendeur == True:
+          self.deduction_article_huit_vendeur+= self.cauto.deduction_frais_fonctionnement + self.frais_repas*0.5 + self.hebergement + self.frais_stationnement + self.frais_representation*0.5 + self.membre_commerce
+      return self.deduction_article_huit_vendeur</pre></li>
+  </ul>
+</div>
+
+<div class="card" id="calcul">
+  <div class="card-header">
+    calcul
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      calcul()
+      <br>
+      <pre>def calcul(self):
+      self.revenu_net_emploi = self.revenu_brut_emploi - self.deduction_article_huit - self.commission_brute if self.deduction_article_huit_vendeur > self.commission_brute else self.revenu_brut_emploi - self.deduction_article_huit - self.deduction_article_huit_vendeur
+      print("[INFO] revenu_brut.RevenuBrut.calcul()", round(self.revenu_brut_emploi), round(self.deduction_article_huit), round(self.deduction_article_huit_vendeur), round(self.revenu_net_emploi))
+      return f"{round(self.revenu_brut_emploi)} {round(self.deduction_article_huit)} {round(self.deduction_article_huit_vendeur)} {round(self.revenu_net_emploi)}"</pre></li>
+  </ul>
+</div>
+
+
+{% endblock %}
