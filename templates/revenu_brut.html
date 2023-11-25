@@ -22,7 +22,7 @@
   </thead>
   <tbody>
     <tr>
-      <td><a href="#revenu_brut">RevenuBrut(boolean est_vendeur=False, Auto cauto=advantage_auto.Auto(1,1), int frais_repas=0, int hebergement=0, int frais_representation=0, int frais_stationnement=0, int membre_commerce=0, int cout_ordinateur=0)</a><br>À savoir si on calcul le salaire comme un vendeur à la commission ou un salarié, classe Auto pour le calcul de déduction selon l'article 8, montant <b>déductible</b> pour les frais de repas à concurrence de 50%, montant <b>déductible</b> pour l'hébergement, montant <b>déductible</b> pour les frais de représentation <i>seulement pour employé vendeur à la commission</i>, montant <b>déductible</b> pour les frais de stationnement chez des clients, montant <b>déductible</b> pour les être Membre à la Chambre de commerce <i>seulement pour employé vendeur à la commission</i>. <u>Les coûts d'ordinateur ne sont pas déductibles.</u></td>
+      <td><a href="#revenu_brut">RevenuBrut(boolean est_vendeur=False, Auto cauto=advantage_auto.Auto(1,1), int frais_repas=0, int hebergement=0, int frais_representation=0, int frais_stationnement=0, int membre_commerce=0, int cout_ordinateur=0)</a><br>À savoir si on calcul le salaire comme un vendeur à la commission ou un salarié, classe Auto pour le calcul de déduction selon l'article 8, montant <b>déductible</b> pour les frais de repas à concurrence de 50%, montant <b>déductible</b> pour l'hébergement, montant <b>déductible</b> pour les frais de représentation <i>seulement pour employé vendeur à la commission</i>, montant <b>déductible</b> pour les frais de stationnement chez des clients, montant <b>déductible</b> pour les être Membre à la Chambre de commerce <i>seulement pour employé vendeur à la commission</i>.</td>
     </tr>
   </tbody>
 </table>
@@ -63,7 +63,7 @@
     </tr>
     <tr>
       <td>Double</td>
-      <td><a href="#calcul">calcul()</a><br><ul><li><a href="#action">action()</a> <i>optionnel</i></li><li><a href="#sb">sb()</a> <i>optionnel</i></li><li><a href="rbe">rbe()</a></li><li><a href="#bure">bure()</a> <i>optionnel</i></li><li><a href="#dah">dah()</a></li><li><a href="#dahv">dahv()</a> <i>optionnel</i></li><li><a href="#calcul">calcul()</a></li></ul></td>
+      <td><a href="#calcul">calcul()</a><br><ul><li><a href="#action">action()</a> <i>optionnel</i></li><li><a href="#sb">sb()</a> <i>optionnel</i></li><li><a href="rbe">rbe()</a></li><li><a href="#bure">bure()</a> <i>optionnel</i></li><li><a href="#dah">dah()</a></li><li><a href="#dahv">dahv()</a> <i><a href="#revenu_brut">si est_vendeur=True</a></i></li><li><a href="#calcul">calcul()</a></li></ul></td>
     </tr>
   </tbody>
 </table>
@@ -92,7 +92,8 @@
         self.frais_stationnement = frais_stationnement
         self.membre_commerce = membre_commerce
         self.patron_frais_deplacement = 0
-        self.revenu_net_emploi = 0</pre></li>
+        self.revenu_net_emploi = 0
+        self.rpa = 0</pre></li>
   </ul>
 </div>
 
@@ -139,6 +140,7 @@
     <li class="list-group-item">
       sb(salaire_net=14730, impot_revenu_fed_prov=4602, rrq=1027, ass_emploi=275, ass_parentale=116, rpa=1100, cot_syndic=150) # 231
       <pre>def sb(self, salaire_net = 0, impot_revenu_fed_prov = 0, rrq = 0, ass_emploi = 0, ass_parentale = 0, rpa = 0, cot_syndic = 0, ass_collectif = 0):
+      self.rpa = rpa
       print("[INFO] revenu_brut.RevenuBrut.sb() Régime de rentes du Québec crédit d'impôt", rrq)
       print("[INFO] revenu_brut.RevenuBrut.sb() Assurance emploi crédit d'impôt", ass_emploi)
       print("[INFO] revenu_brut.RevenuBrut.sb() Régime du Québec d'assurance parentale crédit d'impôt", ass_parentale)
@@ -192,12 +194,16 @@
       dah(rpa=1100, cot_syndic=150, cot_professionnelle=700, frais_cartes_affaires=230) # 231
       <br>
       <pre>def dah(self, depense_ext = 0, cot_syndic = 0, rpa = 0, bureau_centre_ville = 0, cot_professionnelle = 0, don = 0, frais_cartes_affaires = 0):
-      if not bureau_centre_ville == 0:
+        if not rpa == 0:
+            self.rpa = rpa
+        if not bureau_centre_ville == 0:
           self.bureau = bureau_centre_ville
+      if self.rpa == 0:
+          self.rpa = rpa
       self.deduction_article_huit = depense_ext + cot_syndic + rpa + self.bureau + cot_professionnelle
       if self.patron_frais_deplacement == 0:
           self.deduction_article_huit+= self.cauto.deductible_amort_interet_pret
-      if not self.patron_frais_deplacement == 0:
+      if self.patron_frais_deplacement == 0:
           self.cauto.deduction_frais_fonctionnement = 0
       if self.est_vendeur == False:
           self.frais_representation = 0
@@ -233,7 +239,7 @@
       <br>
       <pre>def calcul(self):
       self.revenu_net_emploi = self.revenu_brut_emploi - self.deduction_article_huit - self.commission_brute if self.deduction_article_huit_vendeur > self.commission_brute else self.revenu_brut_emploi - self.deduction_article_huit - self.deduction_article_huit_vendeur
-      print("[INFO] revenu_brut.RevenuBrut.calcul()", round(self.revenu_brut_emploi), round(self.deduction_article_huit), round(self.deduction_article_huit_vendeur), round(self.revenu_net_emploi))
+      print("[INFO] revenu_brut.RevenuBrut.calcul()", round(self.revenu_brut_emploi), round(self.deduction_article_huit), round(self.commission_brute if self.deduction_article_huit_vendeur > self.commission_brute else self.revenu_brut_emploi), round(self.revenu_net_emploi))
       return f"{round(self.revenu_brut_emploi)} {round(self.deduction_article_huit)} {round(self.deduction_article_huit_vendeur)} {round(self.revenu_net_emploi)}"</pre></li>
   </ul>
 </div>

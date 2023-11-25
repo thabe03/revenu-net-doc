@@ -3,6 +3,10 @@ from flask import *
 app = Flask(__name__)
 
 @app.route('/')
+def base():
+    return render_template('base.html')
+
+@app.route('/revenu_net')
 def revenu_net():
     return render_template('revenu_net.html')
 

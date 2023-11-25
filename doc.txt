@@ -3,3 +3,8 @@
 <i></i> : précision
 <u><b></b></u> : exception var
 <u></u> : exception
+<i>utiliser <a href="#"></a></i> : ref
+
+changer le code brut
+changer au cas la démonstration
+changer la doc desc et nomenclature
