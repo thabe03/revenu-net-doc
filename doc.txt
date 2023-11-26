@@ -8,3 +8,10 @@
 changer le code brut
 changer au cas la démonstration
 changer la doc desc et nomenclature
+
+niveau d'importance
+<i> : 1
+<u><i> : 2
+<u><i><b> : 3
+<b> : titre
+<u> : négation, adjectif

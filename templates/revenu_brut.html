@@ -22,7 +22,7 @@
   </thead>
   <tbody>
     <tr>
-      <td><a href="#revenu_brut">RevenuBrut(boolean est_vendeur=False, Auto cauto=advantage_auto.Auto(1,1), int frais_repas=0, int hebergement=0, int frais_representation=0, int frais_stationnement=0, int membre_commerce=0, int cout_ordinateur=0)</a><br>À savoir si on calcul le salaire comme un vendeur à la commission ou un salarié, classe Auto pour le calcul de déduction selon l'article 8, montant <b>déductible</b> pour les frais de repas à concurrence de 50%, montant <b>déductible</b> pour l'hébergement, montant <b>déductible</b> pour les frais de représentation <i>seulement pour employé vendeur à la commission</i>, montant <b>déductible</b> pour les frais de stationnement chez des clients, montant <b>déductible</b> pour les être Membre à la Chambre de commerce <i>seulement pour employé vendeur à la commission</i>.</td>
+      <td><a href="#revenu_brut">RevenuBrut(boolean est_vendeur=False, Auto cauto=advantage_auto.Auto(1,1), int frais_repas=0, int hebergement=0, int frais_representation=0, int frais_stationnement=0, int membre_commerce=0, int cout_ordinateur=0)</a><br>À savoir si on calcul le salaire comme un vendeur à la commission ou un salarié, classe Auto pour le calcul de déduction selon l'article 8, montant <i><u><b>déductible</b></u></i> pour les frais de repas à concurrence de 50%, montant <i><u><b>déductible</b></u></i> pour l'hébergement, montant <i><u><b>déductible</b></u></i> pour les frais de représentation <i>seulement pour employé vendeur à la commission</i>, montant <i><u><b>déductible</b></u></i> pour les frais de stationnement chez des clients, montant <i><u><b>déductible</b></u></i> pour les être Membre à la Chambre de commerce <i>seulement pour employé vendeur à la commission</i>.</td>
     </tr>
   </tbody>
 </table>
@@ -43,7 +43,7 @@
     </tr>
     <tr>
       <td>Double</td>
-      <td><a href="#sb">sb(double salaire_net = 0, double impot_revenu_fed_prov = 0, double rrq = 0, double ass_emploi = 0, double ass_parentale = 0, double rpa = 0, double cot_syndic = 0, double ass_collectif = 0)</a><br>Impôt sur le revenu fédéral et provincial, le régime de rente du Québec, l'assurance-emploi, le régime québécois d'assurance parentale, le régime de pension agréé <a href="#rbe">non imposable</a>, la cotisation syndicale <a href="#dah">déclarer dans dah</a>.<br><i>Salaire net plus <b>déduction</b> à la source.</i></td>
+      <td><a href="#sb">sb(double salaire_net = 0, double impot_revenu_fed_prov = 0, double rrq = 0, double ass_emploi = 0, double ass_parentale = 0, double rpa = 0, double cot_syndic = 0, double ass_collectif = 0)</a><br>Impôt sur le revenu fédéral et provincial, le régime de rente du Québec, l'assurance-emploi, le régime québécois d'assurance parentale, le régime de pension agréé <a href="#rbe">non imposable</a>, la cotisation syndicale <a href="#dah">déclarer dans dah</a>.<br><i>Salaire net plus <u><b>déduction</b></u> à la source.</i></td>
     </tr>
     <tr>
       <td>Double</td>
@@ -51,11 +51,11 @@
     </tr>
     <tr>
       <td>Double</td>
-      <td><a href="#bure">bure(double fourn_cons = 0, double loyer_bureau = 0, int mois = 0, double salaire_adjoint = 0)</a><br>Les dépenses de bureau <b>déductibles</b>. <i>Viens après le calcul rbe.</i><br>Fourniture consomméee (Papetrie), loyer de bureau annuel <u>à déclarer avec <b>mois</b></u>, salaire d'un adjoint annuel.</td>
+      <td><a href="#bure">bure(double fourn_cons = 0, double loyer_bureau = 0, int mois = 0, double salaire_adjoint = 0)</a><br>Les dépenses de bureau <b><u><i>déductibles</i></u></b>. <i>Viens après le calcul rbe.</i><br>Fourniture consomméee (Papetrie), loyer de bureau annuel <i><u>à déclarer avec <b>mois</b></u></i>, salaire d'un adjoint annuel.</td>
     </tr>
     <tr>
       <td>Double</td>
-      <td><a href="#dah">dah(double depense_ext = 0, double cot_syndic = 0, double rpa = 0, double bureau_centre_ville = 0, double cot_professionnelle = 0, double don = 0, double frais_cartes_affaires = 0)</a><br>Dépenses à l'extérieur de l'établissement Hébergement Transport autre que la voiture encourus pour le compte de l'employeur alors que l'employé était à l'extérieur de l'établissement, la cotisation syndicale, paiement au régime de pension agréé, les dépenses de bureau <i>utiliser <a href="#bure">bure</a></i>, la cotisation professionnelle, les dons sont <u><b>non déductibles</b></u>, les frais de cartes d'affaires sont <u><b>non déductibles</b></u>.<br><i>Mention <u>obligatoire</u> après la fonction <a href="#rbe">rbe</a></i>.</td>
+      <td><a href="#dah">dah(double depense_ext = 0, double cot_syndic = 0, double rpa = 0, double bureau_centre_ville = 0, double cot_professionnelle = 0, double don = 0, double frais_cartes_affaires = 0)</a><br>Dépenses à l'extérieur de l'établissement Hébergement Transport autre que la voiture encourus pour le compte de l'employeur alors que l'employé était à l'extérieur de l'établissement, la cotisation syndicale, paiement au régime de pension agréé, les dépenses de bureau <i>utiliser <a href="#bure">bure</a></i>, la cotisation professionnelle, les dons sont <i><u><b>non déductibles</b></u></i> mais donnent droit à un <i><u><b>crédit d'impôt</b></u></i>, les frais de cartes d'affaires sont <i><u><b>non déductibles</b></u></i><br><i>Mention <u>obligatoire</u> après la fonction <a href="#rbe">rbe</a></i>.</td>
     </tr>
     <tr>
       <td>Double</td>
@@ -141,9 +141,12 @@
       sb(salaire_net=14730, impot_revenu_fed_prov=4602, rrq=1027, ass_emploi=275, ass_parentale=116, rpa=1100, cot_syndic=150) # 231
       <pre>def sb(self, salaire_net = 0, impot_revenu_fed_prov = 0, rrq = 0, ass_emploi = 0, ass_parentale = 0, rpa = 0, cot_syndic = 0, ass_collectif = 0):
       self.rpa = rpa
-      print("[INFO] revenu_brut.RevenuBrut.sb() Régime de rentes du Québec crédit d'impôt", rrq)
-      print("[INFO] revenu_brut.RevenuBrut.sb() Assurance emploi crédit d'impôt", ass_emploi)
-      print("[INFO] revenu_brut.RevenuBrut.sb() Régime du Québec d'assurance parentale crédit d'impôt", ass_parentale)
+      if not rrq == 0:
+          print("[INFO] revenu_brut.RevenuBrut.sb() Régime de rentes du Québec crédit d'impôt", rrq)
+      if not ass_emploi == 0:
+          print("[INFO] revenu_brut.RevenuBrut.sb() Assurance emploi crédit d'impôt", ass_emploi)
+      if not ass_emploi == 0:
+          print("[INFO] revenu_brut.RevenuBrut.sb() Régime du Québec d'assurance parentale crédit d'impôt", ass_parentale)
       self.salaire_brut = salaire_net + impot_revenu_fed_prov + rrq + ass_emploi + ass_parentale + rpa + cot_syndic + ass_collectif
       return self.salaire_brut</pre></li>
   </ul>

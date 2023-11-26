@@ -39,12 +39,12 @@
   <tbody>
     <tr>
       <td>Double</td>
-      <td><a href="#fd"></a>def fd(int km_proximite_travail_etude, double repas_par_jour = 0, double logement_par_jour = 0, int jour = 0, double resiliation_bail = 0, double demenagement = 0, double entreposage = 0, double notaire_ph = 0, double veterinaire = 0, double frais_amenagement = 0, double portion_deduite_ap = 0)<br>
+      <td><a href="#fd">def fd(int km_proximite_travail_etude, double repas_par_jour = 0, double logement_par_jour = 0, int jour = 0, double resiliation_bail = 0, double demenagement = 0, double entreposage = 0, double notaire_pa = 0, double veterinaire = 0, double frais_amenagement = 0, double portion_deduite_ap = 0)</a><br><i>Votre nouvelle résidence doit être située au moins 40 kilomètres plus près (par le plus court chemin du réseau routier public) de votre nouveau lieu de travail ou d’études.</i><br>Coût des repas par jour, coût du logement par jour, <i><u>le nombre de jour</u></i>, les coûts de résiliation du bail, le coût du démnagement, le coût de l'entreprosage et du transposage des effets personnels, le coût du notaire pour les <u>premiers acheteurs seulement</u> <i>frais juridiques non admis pour les premiers acheteurs</i>, les coûts de vétérinaire, les frais d'aménagement, la portion déduite de l'année précédante.
       </td>
     </tr>
     <tr>
       <td>Double</td>
-      <td><a href="#a">a(double revenu_net_emploi = 0, double revenu_entreprise = 0, double revenu_agricole = 0, double revenu_interet = 0, double revenu_dividende_ordinaire = 0, double revenu_dividende_determine = 0, double pension_ex = 0, double ferr = 0, double psv = 0, double rpa = 0, double rrq = 0, double prestation_retraite = 0, double allocation_depart_retraite = 0, double prestation_consecutive_deces = 0, double police_ass = 0, double bourse_etude = 0, double revenu_location = 0, double reer = [0,0])</a><br>Le revenu d'intérêts - intérêt sur les obligations dont la location d'un coffret de sureté pour conserver ses placements, le revenu de dividendes ordinaires majorées à 15%, le revenu net de dividendes déterminées majorées à 38%, la pension reçue de l'ex-conjoint(e), les sommes reçues d'un fonds enregistré de revenu de retraite, les prestations de la sécurité de la vieillesse, le régime de pension agréé ou le déclarer à <i><a href="/revenu_brut#sb">sb</a> ou <a href="/revenu_brut#rbe">rbe</a></i>, le régime de rente du Québec ou le déclarer à <i><a href="/revenu_brut#sb">sb</a></i>, une prestation de retraite <i>56(1)a(i)</i>, une allocation de départ à la retraite <i>56(1)a(ii)</i>, une prestation consécutive au décès, une police d'assurance-vie <u><i><b>non imposable</b></i></u>, bourses d'étude exonérées de l'impôt lorsqu'elles sont reçues par un étudiant <u><i><b>non imposable</b></i></u>, revenu de location, fonds retirés d'un reer après déductions à la source additionnés aux déductions à la source.</td>
+      <td><a href="#a">a(double revenu_net_emploi = 0, double revenu_entreprise = 0, double revenu_agricole = 0, double revenu_interet = 0, double revenu_dividende_ordinaire = 0, double revenu_dividende_determine = 0, double pension_ex = 0, double ferr = 0, double psv = 0, double rpa = 0, double rrq = 0, double prestation_retraite = 0, double allocation_depart_retraite = 0, double prestation_consecutive_deces = 0, double police_ass = 0, double bourse_etude = 0, double revenu_location = 0, double reer = [0,0], double indeminite_accident = 0, double moins_conseiller = 0)</a><br>Le revenu d'intérêts - intérêt sur les obligations dont la location d'un coffret de sureté pour conserver ses placements, le revenu de dividendes ordinaires majorées à 15%, le revenu net de dividendes déterminées majorées à 38%, la pension reçue de l'ex-conjoint(e), les sommes reçues d'un fonds enregistré de revenu de retraite, les prestations de la sécurité de la vieillesse, le régime de pension agréé ou le déclarer à <i><a href="/revenu_brut#sb">sb</a> ou <a href="/revenu_brut#rbe">rbe</a></i>, le régime de rente du Québec ou le déclarer à <i><a href="/revenu_brut#sb">sb</a></i>, une prestation de retraite <i>56(1)a(i)</i>, une allocation de départ à la retraite <i>56(1)a(ii)</i>, une prestation consécutive au décès, une police d'assurance-vie <u><i><b>non imposable</b></i></u>, bourses d'étude exonérées de l'impôt lorsqu'elles sont reçues par un étudiant <u><i><b>non imposable</b></i></u>, revenu de location, fonds retirés d'un reer après déductions à la source additionnés aux déductions à la source, indemnité suite à un accident de travail, honoraire pour un conseiller en placement.</td>
     </tr>
     <tr>
       <td>Double</td>
@@ -56,11 +56,15 @@
     </tr>
     <tr>
       <td>Double</td>
-      <td><a href="#d">d(double perte_entreprise = 0, double perte_loyer = 0)</a></td>
+      <td><a href="#d">d(double perte_entreprise = 0, double perte_loyer = 0, double perte_agricole = 0, double perte_agricole_principale = 0</a>Perte agricole principale à savoir 1 étant la source de revenue principale.</td>
     </tr>
     <tr>
       <td>Double</td>
-      <td><a href="#calcul">calcul(double ap = 0, double ap_agricole = 0, double ap_autres = 0, double ap_capital = 0)</a><br>Le solde de perte <u>AP</u>, les pertes agricoles restreintes, les pertes autres qu'en capital, les pertes en capital nettes.</td>
+      <td><a href="#calcul">calcul(double ap = 0, double ap_agricole = 0, double ap_autre = 0, double ap_capital = 0)</a><br>Le solde de perte <u>AP</u>, les pertes agricoles restreintes, les pertes autres qu'en capital, les pertes en capital nettes.</td>
+    </tr>
+    <tr>
+      <td>Double</td>
+      <td><a href="#reporter">reporter(string art, string sticker, double reporte = 0, double montant = 0, double total = 0)</a><br>L'article associé, le label à reporter<br>Combinaison possible<br><ul><li>Le montant > 0 et le total == 0, on retourne le montant</li><li>Le montant > 0 et le total > 0 et le montant > total, on retourne le (total - montant) * -1 <i>(5000-2000)*-1=3000 à reporter</i></li><li>Le montant > 0 et le total > 0 et le montant &lt; total, on retourne le montant</li></ul></td>
     </tr>
   </tbody>
 </table>
@@ -72,17 +76,22 @@
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">RevenuNet()<br><pre>class RevenuNet:  
-      def __init__(self):
-        self.revenu = 0
-        self.gain_perte = 0
-        self.deduction = 0
-        self.perte_entreprise = 0
-        self.perte_placement = 0
-        self.rpa = 0
-        self.beneficiaire = 0
-        self.frais_demenagement = 0
-        self.psv = 0
-        self.revenu_net = 0</pre></li>
+    def __init__(self):
+      self.revenu = 0
+      self.gain_perte = 0
+      self.deduction = 0
+      self.perte_placement = 0
+      self.rpa = 0
+      self.beneficiaire = 0
+      self.frais_demenagement = 0
+      self.psv = 0
+      self.revenu_net = 0
+      self.revenu_agricole = 0
+      self.perte_autre = 0
+      self.perte_agricole = 0
+      self.perte_agricole_restreinte = 0
+      self.pertes = 0
+      self.perte_capital = 0</pre></li>
   </ul>
 </div>
 
@@ -94,12 +103,12 @@
     <li class="list-group-item">
       fd(km_proximite_travail_etude=0,demenagement=1200, jour=1) # 247
       <br>
-      <pre>def fd(self, km_proximite_travail_etude, repas_par_jour = 0, logement_par_jour = 0, jour = 0, resiliation_bail = 0, demenagement = 0, entreposage = 0, notaire_ph = 0, veterinaire = 0, frais_amenagement = 0, portion_deduite_ap = 0):
+      <pre>def fd(self, km_proximite_travail_etude, repas_par_jour = 0, logement_par_jour = 0, jour = 0, resiliation_bail = 0, demenagement = 0, entreposage = 0, notaire_pa = 0, veterinaire = 0, frais_amenagement = 0, portion_deduite_ap = 0):
       if jour == 0:
-        print("[ERREUR] frais_demenagement déclarer le nombre de jour")
+        print("[ERREUR] fd déclarer le nombre de jour")
         return 0
       elif km_proximite_travail_etude < 40:
-        print("[INFO] frais_demenagement Le déménagement ne se rapproche pas de 40 km au moins du nouveau lieu de travail ou d'étude")
+        print("[INFO] fd Le déménagement ne se rapproche pas de 40 km au moins du nouveau lieu de travail ou d'étude")
         return 0
       if jour > 15:
         repas_par_jour = 15*repas_par_jour
@@ -107,7 +116,7 @@
       else:
         repas_par_jour = jour*repas_par_jour
         logement_par_jour = jour*logement_par_jour
-      self.frais_demenagement = (repas_par_jour + logement_par_jour + resiliation_bail + demenagement + entreposage + notaire_ph + veterinaire + frais_amenagement) - portion_deduite_ap
+      self.frais_demenagement = (repas_par_jour + logement_par_jour + resiliation_bail + demenagement + entreposage + notaire_pa + veterinaire + frais_amenagement) - portion_deduite_ap
       return self.frais_demenagement</pre></li>
   </ul>
 </div>
@@ -117,13 +126,15 @@
     a # alinéa 3a)
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">a(revenu_net_emploi=52000, revenu_entreprise=2000, revenu_interet=100, revenu_dividende_ordinaire=800, pension_ex=6000, ferr=400) # 203<br><pre>def a(self, revenu_net_emploi = 0, revenu_entreprise = 0, revenu_agricole = 0, revenu_interet = [0,0], revenu_dividende_ordinaire = 0, revenu_dividende_determine = 0, pension_ex = 0, ferr = 0, psv = 0, rpa = 0, rrq = 0, prestation_retraite = 0, allocation_depart_retraite = 0, prestation_consecutive_deces = 0, police_ass = 0, bourse_etude = 0, revenu_location = 0, reer = [0,0]):
+    <li class="list-group-item">a(revenu_net_emploi=52000, revenu_entreprise=2000, revenu_interet=100, revenu_dividende_ordinaire=800, pension_ex=6000, ferr=400) # 203<br><pre>def a(self, revenu_net_emploi = 0, revenu_entreprise = 0, revenu_agricole = 0, revenu_interet = [0,0], revenu_dividende_ordinaire = 0, revenu_dividende_determine = 0, pension_ex = 0, ferr = 0, psv = 0, rpa = 0, rrq = 0, prestation_retraite = 0, allocation_depart_retraite = 0, prestation_consecutive_deces = 0, police_ass = 0, bourse_etude = 0, revenu_location = 0, reer = [0,0], indeminite_accident = 0, revenu_dividende_etranger = 0, moins_conseiller = 0):
     police_ass = 0
     bourse_etude = 0
     self.rpa = rpa
     self.psv = psv
+    self.revenu_agricole = revenu_agricole
+    self.indeminite_accident = indeminite_accident
     prestation_consecutive_deces = prestation_consecutive_deces-self.dd([prestation_consecutive_deces]) if prestation_consecutive_deces - self.dd([prestation_consecutive_deces]) > 0 else 0
-    self.revenu = revenu_net_emploi + revenu_entreprise + revenu_agricole + revenu_interet[0]-revenu_interet[1] + revenu_dividende_ordinaire+int(revenu_dividende_ordinaire*0.15) + revenu_dividende_determine+int(revenu_dividende_determine*0.38) + pension_ex + ferr + self.psv + self.rpa + rrq + prestation_retraite + allocation_depart_retraite + prestation_consecutive_deces + revenu_location + reer[0]+reer[1]
+    self.revenu = revenu_net_emploi + revenu_entreprise + self.revenu_agricole + revenu_interet[0]-revenu_interet[1] + revenu_dividende_ordinaire+int(revenu_dividende_ordinaire*0.15) + revenu_dividende_determine+int(revenu_dividende_determine*0.38) + pension_ex + ferr + self.psv + self.rpa + rrq + prestation_retraite + allocation_depart_retraite + prestation_consecutive_deces + revenu_location + reer[0]+reer[1] + self.indeminite_accident + revenu_dividende_etranger*100/85 - moins_conseiller
     return self.revenu</pre></li>
   </ul>
 </div>
@@ -141,10 +152,7 @@
       self.perte_placement = perte_placement*0.5
       self.gain_perte = gain_capital_imposable - (perte_capital_deductible - self.perte_placement)
       if self.gain_perte < 0:
-        if perte_placement > 0:
-          print("[INFO] revenu_net.RevenuNet.b Perte en capital", perte_capital_deductible - self.perte_placement-gain_capital_imposable, "à reporter")
-        else:
-          print("[INFO] revenu_net.RevenuNet.b Perte en capital", self.gain_perte*-1, "à reporter")
+        self.perte_capital = reporter("b", "Perte en capital", 1, perte_capital_deductible, gain_capital_imposable + self.perte_placement)
         self.gain_perte = 0
         return self.gain_perte
       else:
@@ -198,11 +206,18 @@
     <li class="list-group-item">
       d(perte_loyer=4000, perte_entreprise=10000) # 201c
       <br>
-      <pre>def d(self, perte_entreprise = 0, perte_loyer = 0):
-      c = self.revenu + self.gain_perte - self.deduction
-      self.perte_entreprise = perte_entreprise + self.perte_placement + perte_loyer
-      self.perte_entreprise = reporter("d", "Perte d'entreprise", 1, self.perte_entreprise, c)
-      return self.perte_entreprise</pre></li>
+      <pre>def d(self, perte_entreprise = 0, perte_loyer = 0, perte_agricole = 0, perte_agricole_principale = 0):
+      c = self.revenu + self.gain_perte - self.deduction    
+      self.perte_autre = perte_entreprise + self.perte_placement + perte_loyer + self.indeminite_accident
+      self.perte_autre = reporter("d", "Perte autre qu'en capital", 1, self.perte_autre, c)
+      if perte_agricole_principale == 0 and not perte_agricole == 0:
+        self.perte_agricole = perte_agricole - (2500 + (0.5*(perte_agricole-2500)))
+        print(f"[INFO] d Perte agricole restreinte {self.perte_agricole} à reporter")
+      elif not perte_agricole_principale == 0 and not perte_agricole == 0:
+        self.perte_agricole = perte_agricole
+        print(f"[INFO] d Perte agricole {self.perte_agricole} à reporter")
+      self.pertes = self.perte_autre + (round(2500 + (0.5*(perte_agricole-2500))) if not perte_agricole == 0 else 0)
+      return self.pertes</pre></li>
   </ul>
 </div>
 
@@ -212,35 +227,64 @@
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">
-      calcul(ap_agricole=10000, ap_autres=70000, ap_capital=35000) # 251
+      calcul(ap_agricole=10000, ap_autre=70000, ap_capital=35000) # 251
       <br>
-      <pre>def calcul(self, ap = 0, ap_agricole = 0, ap_autres = 0, ap_capital = 0):
-      message = f"{round(self.revenu)} + {round(self.gain_perte)} - {round(self.deduction)} - {round(self.perte_entreprise)} "
+      <pre>def calcul(self, ap = 0, ap_agricole = 0, ap_autre = 0, ap_capital = 0):
+      message = f"{round(self.revenu)} + {round(self.gain_perte)} - {round(self.deduction)} - {round(self.pertes)} "
       message_reporte = ""
-      calcul = self.revenu + self.gain_perte - self.deduction - self.perte_entreprise
+      calcul = self.revenu + self.gain_perte - self.deduction - self.pertes
       if not ap == 0:
         reporte = 0 if calcul - ap > 0 else calcul - ap
-        message_reporte += f"[INFO] revenu_net.RevenuNet.reporte {round(reporte)*-1} à reporter\n"
+        if not reporte == 0:
+          message_reporte += f"[INFO] calcul AP {round(reporte)*-1} à reporter\n"
         calcul -= (ap + reporte)
         message += f"- {round(ap+reporte)} "
       if not ap_agricole == 0:
         reporte = 0 if self.revenu_agricole - ap_agricole > 0 else self.revenu_agricole - ap_agricole
         calcul -= (ap_agricole + reporte)
-        message_reporte += f"[INFO] revenu_net.RevenuNet.reporte_agricole {round(reporte)*-1} à reporter\n"
+        if not reporte == 0:
+          message_reporte += f"[INFO] calcul AP Perte agricole {round(reporte)*-1} à reporter\n"
         message += f"- {round(ap_agricole+reporte)} "
-      if not ap_autres == 0:
-        reporte = 0 if calcul - ap_autres > 0 else calcul - ap_autres
-        message_reporte += f"[INFO] revenu_net.RevenuNet.reporte_autres {round(reporte)*-1} à reporter\n"
-        calcul -= (ap_autres + reporte)
-        message += f"- {round(ap_autres+reporte)} "
+      if not ap_autre == 0:
+        reporte = 0 if calcul - ap_autre > 0 else calcul - ap_autre
+        if not reporte == 0:
+          message_reporte += f"[INFO] calcul AP Perte autre qu'en capital {round(reporte)*-1} à reporter\n"
+        calcul -= (ap_autre + reporte)
+        message += f"- {round(ap_autre+reporte)} "
       if not ap_capital == 0:
         reporte = 0 if calcul - ap_capital > 0 else calcul - ap_capital
-        message_reporte += f"[INFO] revenu_net.RevenuNet.reporte_capital {round(reporte)*-1} à reporter\n"
+        if not reporte == 0:
+          message_reporte += f"[INFO] calcul AP Perte en capital {round(reporte)*-1} à reporter\n"
         calcul -= (ap_capital + reporte)
         message += f"- {round(ap_capital+reporte)} "
       message+= f"= {round(calcul)}"
       print(message_reporte+message)
       return message</pre></li>
+  </ul>
+</div>
+
+<div class="card" id="reporter">
+  <div class="card-header">
+    reporter
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <pre>def reporter(art, sticker, reporte = 0, montant = 0, total = 0):     
+      if reporte == 1:
+        reporte = "à reporter"
+      elif reporte == 0:
+        reporte = "non reportable"
+
+      if not montant == 0 and total == 0:
+        print("[INFO]", art, sticker, montant, reporte)
+        return 0
+      elif not montant == 0 and not total == 0 and montant > total:
+        print("[INFO]", art, sticker, (total-montant)*-1, reporte)
+        return total
+      elif not montant == 0 and not total == 0 and montant < total:
+        return montant
+      else:
+        return 0</pre></li>
   </ul>
 </div>
 
