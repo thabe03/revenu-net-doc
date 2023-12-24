@@ -1,17 +1,12 @@
-<u><i></i></u> : mention || sous-titre+négation
-<b></b> : déduc.*, sous-titre
-<i></i> : précision
-<u><b></b></u> : exception var
-<u></u> : exception
-<i>utiliser <a href="#"></a></i> : ref
-
 changer le code brut
 changer au cas la démonstration
 changer la doc desc et nomenclature
 
-niveau d'importance
-<i> : 1
-<u><i> : 2
-<u><i><b> : 3
-<b> : titre
-<u> : négation, adjectif
+niveau d'importance décroissant
+<i> : précision # (5000-2000)*-1=3000 à reporter, Régime épargne enregistré retraite, 56(1)a(i), frais juridiques non admis pour les premiers acheteurs, seulement pour employé vendeur à la commission
+<u><i> : n'importe quoi # à déclarer avec <b>mois</b>, le nombre de jour
+<u><i><b> : 3 # déductibles, non imposable, déduction, crédit d'impôt
+<b> : titre, Combinaisons possibles:
+<u> : négation, adjectif # les frais de scolarité sont admissibles à un crédit d'impôt, AP, ne ... pas, premiers acheteurs seulement, Si
+
+<a href="">param dans fonction()</a>

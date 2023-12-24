@@ -44,7 +44,7 @@
     </tr>
     <tr>
       <td>Double</td>
-      <td><a href="#a">a(double revenu_net_emploi = 0, double revenu_entreprise = 0, double revenu_agricole = 0, double revenu_interet = 0, double revenu_dividende_ordinaire = 0, double revenu_dividende_determine = 0, double pension_ex = 0, double ferr = 0, double psv = 0, double rpa = 0, double rrq = 0, double prestation_retraite = 0, double allocation_depart_retraite = 0, double prestation_consecutive_deces = 0, double police_ass = 0, double bourse_etude = 0, double revenu_location = 0, double reer = [0,0], double indeminite_accident = 0, double moins_conseiller = 0)</a><br>Le revenu d'intérêts - intérêt sur les obligations dont la location d'un coffret de sureté pour conserver ses placements, le revenu de dividendes ordinaires majorées à 15%, le revenu net de dividendes déterminées majorées à 38%, la pension reçue de l'ex-conjoint(e), les sommes reçues d'un fonds enregistré de revenu de retraite, les prestations de la sécurité de la vieillesse, le régime de pension agréé ou le déclarer à <i><a href="/revenu_brut#sb">sb</a> ou <a href="/revenu_brut#rbe">rbe</a></i>, le régime de rente du Québec ou le déclarer à <i><a href="/revenu_brut#sb">sb</a></i>, une prestation de retraite <i>56(1)a(i)</i>, une allocation de départ à la retraite <i>56(1)a(ii)</i>, une prestation consécutive au décès, une police d'assurance-vie <u><i><b>non imposable</b></i></u>, bourses d'étude exonérées de l'impôt lorsqu'elles sont reçues par un étudiant <u><i><b>non imposable</b></i></u>, revenu de location, fonds retirés d'un reer après déductions à la source additionnés aux déductions à la source, indemnité suite à un accident de travail, honoraire pour un conseiller en placement.</td>
+      <td><a href="#a">a(double revenu_net_emploi = 0, double revenu_entreprise = 0, double revenu_agricole = 0, double revenu_interet = 0, double revenu_dividende_ordinaire = 0, double revenu_dividende_determine = 0, double pension_ex = 0, double ferr = 0, double psv = 0, double rpa = 0, double rrq = 0, double prestation_retraite = 0, double allocation_depart_retraite = 0, double prestation_consecutive_deces = 0, double police_ass = 0, double bourse_etude = 0, double revenu_location = 0, double reer = [0,0], double indeminite_accident = 0, double moins_conseiller = 0)</a><br>Le revenu d'intérêts - intérêt sur les obligations dont la location d'un coffret de sureté pour conserver ses placements, le revenu de dividendes ordinaires majorées à 15%, le revenu net de dividendes déterminées majorées à 38%, la pension reçue de l'ex-conjoint(e), les sommes reçues d'un fonds enregistré de revenu de retraite, les prestations de la sécurité de la vieillesse, le régime de pension agréé ou <a href="/revenu_brut#sb">déclarer rpa dans sb()</a> ou <a href="/revenu_brut#rbe">rbe()</a>, le régime de rente du Québec ou <a href="/revenu_brut#sb">déclarer rrq dans sb()</a>, une prestation de retraite <i>56(1)a(i)</i>, une allocation de départ à la retraite <i>56(1)a(ii)</i>, une prestation consécutive au décès, une police d'assurance-vie <u><i><b>non imposable</b></i></u>, bourses d'étude exonérées de l'impôt lorsqu'elles sont reçues par un étudiant <u><i><b>non imposable</b></i></u>, revenu de location, fonds retirés d'un reer après déductions à la source additionnés aux déductions à la source, indemnité suite à un accident de travail, honoraire pour un conseiller en placement.</td>
     </tr>
     <tr>
       <td>Double</td>
@@ -56,7 +56,7 @@
     </tr>
     <tr>
       <td>Double</td>
-      <td><a href="#d">d(double perte_entreprise = 0, double perte_loyer = 0, double perte_agricole = 0, double perte_agricole_principale = 0</a>Perte agricole principale à savoir 1 étant la source de revenue principale.</td>
+      <td><a href="#d">d(double perte_entreprise = 0, double perte_loyer = 0, double perte_agricole = 0, double perte_agricole_principale = 0</a><br>Perte agricole principale à savoir 1 étant la source de revenue principale.</td>
     </tr>
     <tr>
       <td>Double</td>
@@ -65,6 +65,54 @@
     <tr>
       <td>Double</td>
       <td><a href="#reporter">reporter(string art, string sticker, double reporte = 0, double montant = 0, double total = 0)</a><br>L'article associé, le label à reporter<br>Combinaison possible<br><ul><li>Le montant > 0 et le total == 0, on retourne le montant</li><li>Le montant > 0 et le total > 0 et le montant > total, on retourne le (total - montant) * -1 <i>(5000-2000)*-1=3000 à reporter</i></li><li>Le montant > 0 et le total > 0 et le montant &lt; total, on retourne le montant</li></ul></td>
+    </tr>
+    <tr>
+      <td>Double</td>
+      <td><a href="#credit_pension">credit_pension()</a><br>Un <u>maximum</u> de 15% de <i>2000</i>. 15% du revenu de retraite <a href="#a">déclarer revenu_retraite dans a()</a>.<br>Crédit d'impôt pour le revenu de retraite provenant du régime de retraite d'un employeur.</td>
+    </tr>
+    <tr>
+      <td>Double</td>
+      <td><a href="#credit_conjoint">credit_conjoint(double epoux = 0)</a><br><u><i><b>Si</b> le conjoint ne travaille peu ou pas.</i></u><br>Un <u>maximum</u> de 15% du montant personnel de base <i>12 069</i>.<br>(Le montant personnel de base - le revenu net de monsieur/madame) * 15%.</td>
+    </tr>
+    <tr>
+      <td>Double</td>
+      <td><a href="#credit_personnel_base">credit_personnel_base()</a><br>15% du montant personnel de base <i>12 069</i>.<br>Crédit d'impôt pour <i>tous</i>.</td>
+    </tr>
+    <tr>
+      <td>Double</td>
+      <td><a href="#credit_scolarite">credit_scolarite(double montant_scolarite = 0)</a><br>Un <u>maximum</u> de 15% de <i>5000</i>.<br>Crédit d'impôt pour frais de scolarité.</td>
+    </tr>
+    <tr>
+      <td>Double</td>
+      <td><a href="#credit_transfere">credit_transfere(double montant_credit_transfere)</a><br>Transfert provenant d'un conjoint ou d'un enfant.</td>
+    </tr>
+    <tr>
+      <td>Double</td>
+      <td><a href="#credit_frais_medicaux">credit_frais_medicaux(double montant_frais_medicaux, double remb_ass = 0)</a><br>Les frais médicaux sont <u><i><b>déductibles</b></i></u> ainsi que la contribution à un régime privé d'assurance-maladie. Cependant, on soustrait du calcul de ce qu'on considère comme <u><i><b>déductible</b></i></u> le remboursement du régime privé d'assurance-maladie. Ensuite, de ce calcul, on soustrait 3% du revenu net jusqu'à un <u>maximum</u> de <i>2352</i>. On fait 15% de ce calcul.<br><br><b>Étude de cas</b><br><ul><li>J'ai 2225 de frais médicaux</li><li>Ma prime pour mon régime privé d'assurance-maladie est de 500</li><li>Ma cotisation pour mon régime privé d'assurance-maladie est de 1500</li><li>Mon revenu net est de 80 200</li></ul>((2225+1500-500) - (0.03*80 200 (max. 2352)))*0.15<br><br>La prime d'assurance maladie privé <a href="/revenu_brut#sb">déclarer ass_maladie_prive dans sb()</a>.<br>Autres frais médicaux.<br>Le remboursement de l'assurance privé.</td>
+    </tr>
+    <tr>
+      <td>Double</td>
+      <td><a href="#credit_don">credit_don(double montant_don)</a><br>Les premiers <i>200</i> sont soumis à un crédit d'impôt de 15%. Le reste est soumis à un crédit d'impôt de 29%.</td>
+    </tr>
+    <tr>
+      <td>Double</td>
+      <td><a href="#credit_dividende_determine">credit_dividende_determine()</a><br><i>6/11</i> du (revenu de dividendes déterminés provenant de sociétés publiques canadiennes majorés à 138% - le revenu de dividendes déterminés réel).<br><a href="#a">Déclarer revenu_dividende_determine dans a()</a>.</td>
+    </tr>
+    <tr>
+      <td>Double</td>
+      <td><a href="#credit_personne_charge">credit_personne_charge(double montant_personne_charge)</a><br><u><i><b>Si</b> la personne n’a pas d’époux ou de conjoint de fait.</i></u><br>Un <u>maximum</u> de 15% du montant personnel de base <i>12 069</i>.<br>(Le montant personnel de base - le revenu net de l'enfant à charge) * 15%.</td>
+    </tr>
+    <tr>
+      <td>Double</td>
+      <td><a href="#credit_cad_emploi">credit_cad_emploi()</a><br><u><i><b>Si</b> la personne n'est pas travailleur indépendant.</i></u><br>Un <u>maximum</u> de 15% de <i>1222</i>. 15% du revenu net d'emploi. Crédit d'impôt pour <i>tous</i>.</td>
+    </tr>
+    <tr>
+      <td>Void</td>
+      <td><a href="#calcul_credits">calcul_credits()</a><br><ul><li>imposition_revenu() <i>calcul le revenu imposable</i></li><li>credits() <i>calcul la somme de tous les crédits d'impôts</i></li><li>imposition_base() <i>calcul l'impôt fédéral de base, c'est-à-dire le revenu imposable <a href="imposition_revenu">imposition_revenu()</a> - tous les crédits d'impôts</i></li><li>credit_abattement() <i>calcul l'abattement pour les résidents du Québec, c'est-à-dire 16.5% du calcul résultat précédant</i></li><li>imposition_federale() <i>est la soustraction du résultat en point 2 - le credit_abattement</i></li></ul></td>
+    </tr>
+    <tr>
+      <td>Double</td>
+      <td><a href="#credits">credits(double credit_salaire_result = 0)</a><br>La somme de tous les crédits d'impôts.</td>
     </tr>
   </tbody>
 </table>
@@ -76,22 +124,66 @@
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">RevenuNet()<br><pre>class RevenuNet:  
-    def __init__(self):
+    def __init__(self, crb = rb.RevenuBrut()):
       self.revenu = 0
       self.gain_perte = 0
       self.deduction = 0
+      self.perte_autre = 0
       self.perte_placement = 0
+      self.pertes = 0
       self.rpa = 0
       self.beneficiaire = 0
       self.frais_demenagement = 0
       self.psv = 0
-      self.revenu_net = 0
       self.revenu_agricole = 0
-      self.perte_autre = 0
       self.perte_agricole = 0
       self.perte_agricole_restreinte = 0
-      self.pertes = 0
-      self.perte_capital = 0</pre></li>
+      self.perte_capital = 0
+      self.revenu_retraite = 0
+      self.montant_personnel_base = 12069
+      self.raison_age_limite_inf = 37790
+      self.raison_age_limite_sup = 87750
+      self.raison_age_montant_maximal = 7494
+      self.credit_pension_result = 0
+      self.credit_conjoint_result = 0
+      self.credit_raison_age_result = 0
+      self.credit_personnel_base_result = 0
+      self.credit_scolarite_result = 0
+      self.credit_frais_medicaux_result = 0
+      self.credit_don_result = 0
+      self.credit_dividende_determine_result = 0
+      self.revenu_dividende_determine = 0
+      self.frais_medicaux_limite = 2352
+      self.don_taux_premier = 0.15
+      self.don_taux_reste = 0.29
+      self.don_montant_premier = 200
+      self.dividende_determine_majoration = 6/11
+      self.imposition_revenu_pallier_un = 47630
+      self.imposition_revenu_pallier_deux = 95259
+      self.imposition_revenu_pallier_trois = 147667
+      self.imposition_revenu_pallier_quatre = 210371
+      self.imposition_revenu_pallier_un_taux = 0.15
+      self.imposition_revenu_pallier_deux_taux = 0.205
+      self.imposition_revenu_pallier_trois_taux = 0.26
+      self.imposition_revenu_pallier_quatre_taux = 0.29
+      self.imposition_revenu_pallier_cinq_taux = 0.33
+      self.imposition_revenu_result = 0
+      self.calcul_result = 0
+      self.credit_personne_charge_result = 0
+      self.credit_cad_emploi_result = 0
+      self.cad_emploi_limite = 1222
+      self.crb = crb
+      self.imposition_base_result = 0
+      self.credits_result = 0
+      self.abattement_taux = 0.165
+      self.credit_abattement_result = 0
+      self.imposition_federale_result = 0
+      self.imposition_federale_deduit_source = self.crb.impot_fed
+      self.scolarite_limite = 5000
+      self.gain_capital_imposable = 0
+      self.credit_transferable_result = 0
+      self.credit_salaire_result = 0
+      self.credit_transfere_result = 0</pre></li>
   </ul>
 </div>
 
@@ -285,6 +377,200 @@
         return montant
       else:
         return 0</pre></li>
+  </ul>
+</div>
+
+<div class="card" id="credit_pension">
+  <div class="card-header">
+    credit_pension # crédit de pension
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      credit_pension() # 262
+      <br>
+      <pre>def credit_pension(self):   
+      self.credit_pension_result = min(self.revenu_retraite, 2000)*0.15
+      print(f"[INFO] credit_pension {round(self.credit_pension_result)}")
+      return self.credit_pension_result</pre></li>
+  </ul>
+</div>
+
+<div class="card" id="credit_conjoint">
+  <div class="card-header">
+    credit_conjoint # crédit personnel pour conjoint
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      credit_conjoint(epoux=7500) # 262
+      <br>
+      <pre>def credit_conjoint(self, epoux):
+      self.credit_conjoint_result = (self.montant_personnel_base - epoux)*0.15
+      print(f"[INFO] credit_conjoint {round(self.credit_conjoint_result)}")
+      return self.credit_conjoint_result</pre></li>
+  </ul>
+</div>
+
+<div class="card" id="credit_personnel_base">
+  <div class="card-header">
+    credit_personnel_base # crédit d'impôt personnel de base
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      credit_personnel_base() # 262
+      <br>
+      <pre>def credit_personnel_base(self):
+      self.credit_personnel_base_result = self.montant_personnel_base*0.15
+      print(f"[INFO] credit_personnel_base {round(self.credit_personnel_base_result)}")
+      return self.credit_personnel_base_result</pre></li>
+  </ul>
+</div>
+
+<div class="card" id="credit_scolarite">
+  <div class="card-header">
+    credit_scolarite # crédit de scolarité
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      credit_scolarite(montant_scolarite=2000) # 262
+      <br>
+      <pre>def credit_scolarite(self, montant_scolarite):
+      self.credit_scolarite_result = min((montant_scolarite*0.15), self.scolarite_limite*0.15)
+      print(f"[INFO] credit_scolarite {round(self.credit_scolarite_result)}")
+      return self.credit_scolarite_result</pre></li>
+  </ul>
+</div>
+
+<div class="card" id="credit_transfere">
+  <div class="card-header">
+    credit_transfere # crédit transféré provenant d'un conjoint ou d'un enfant
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      credit_transfere(montant_credit_transfere=1124) # 262
+      <br>
+      <pre>def credit_transfere(self, montant_credit_transfere):
+      self.credit_transfere_result = montant_credit_transfere</pre></li>
+  </ul>
+</div>
+
+<div class="card" id="credit_frais_medicaux">
+  <div class="card-header">
+    credit_frais_medicaux # crédit pour frais médicaux
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      credit_frais_medicaux(montant_frais_medicaux=2225, remb_ass=500) # 264_André
+      <br>
+      <pre>def credit_frais_medicaux(self, montant_frais_medicaux, remb_ass = 0):
+      self.credit_frais_medicaux_result = (montant_frais_medicaux - remb_ass - (0.03*(self.revenu + self.gain_perte - self.deduction) if 0.03*(self.revenu + self.gain_perte - self.deduction) &lt; self.frais_medicaux_limite else self.frais_medicaux_limite))*0.15
+      print(f"[INFO] credit_frais_medicaux {round(self.credit_frais_medicaux_result)}")
+      return self.credit_frais_medicaux_result</pre></li>
+  </ul>
+</div>
+
+<div class="card" id="credit_don">
+  <div class="card-header">
+    credit_don # crédit pour dons
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      credit_don(montant_don=500) # 262
+      <br>
+      <pre>def credit_don(self, montant_don): # à faire
+      if not montant_don < 200:
+        self.credit_don_result = (self.don_montant_premier * self.don_taux_premier) + ((montant_don - self.don_montant_premier)*self.don_taux_reste)
+      else:
+        self.credit_don_result = montant_don * self.don_taux_premier
+      print(f"[INFO] credit_don {round(self.credit_don_result)}")
+      return self.credit_don_result</pre></li>
+  </ul>
+</div>
+
+<div class="card" id="credit_dividende_determine">
+  <div class="card-header">
+    credit_dividende_determine # crédit du revenu de dividendes déterminés
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      credit_dividende_determine() # 262
+      <br>
+      <pre>def credit_dividende_determine(self):
+      self.credit_dividende_determine_result = ((self.revenu_dividende_determine+int(self.revenu_dividende_determine*0.38))-self.revenu_dividende_determine)*self.dividende_determine_majoration
+      print(f"[INFO] credit_dividende_determine {round(self.credit_dividende_determine_result)}")
+      return self.credit_dividende_determine_result</pre></li>
+  </ul>
+</div>
+
+<div class="card" id="credit_personne_charge">
+  <div class="card-header">
+    credit_personne_charge # crédit d'impôt personnel pour personne à charge
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      credit_personne_charge(montant_personne_charge=3900) # 264_André
+      <br>
+      <pre>def credit_personne_charge(self, montant_personne_charge):
+      self.credit_personne_charge_result = (self.montant_personnel_base - montant_personne_charge)*0.15
+      print(f"[INFO] credit_personne_charge {round(self.credit_personne_charge_result)}")
+      return self.credit_personne_charge_result</pre></li>
+  </ul>
+</div>
+
+<div class="card" id="credit_cad_emploi">
+  <div class="card-header">
+    credit_cad_emploi # crédit canadien pour emploi
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      credit_cad_emploi() # 264_André
+      <br>
+      <pre>def credit_cad_emploi(self):
+      self.credit_cad_emploi_result = min(self.cad_emploi_limite, self.calcul_result)*0.15
+      print(f"[INFO] credit_cad_emploi {round(self.credit_cad_emploi_result)}")
+      return self.credit_cad_emploi_result</pre></li>
+  </ul>
+</div>
+
+<div class="card" id="calcul_credits">
+  <div class="card-header">
+    calcul_credits # calcul l'impôt fédéral à payer ou à recevoir
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      calcul_credits() # 264_André
+      <br>
+      <pre>def calcul_credits(self):
+      self.imposition_revenu()
+      self.credits()
+      self.imposition_base()
+      self.credit_abattement()
+      self.imposition_federale()</pre></li>
+  </ul>
+</div>
+
+<div class="card" id="credits">
+  <div class="card-header">
+    credits # la somme de tous les crédits d'impôt
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      credits() # 264_André
+      <br>
+      <pre>def credits(self, credit_salaire_result = 0):
+      self.credit_salaire_result = credit_salaire_result
+      if not self.crb.credit_salaire_result == 0:
+        self.credit_salaire_result = self.crb.credit_salaire_result
+      array = [self.credit_pension_result, self.credit_conjoint_result, self.credit_raison_age_result, self.credit_personnel_base_result, self.credit_scolarite_result, self.credit_frais_medicaux_result, self.credit_don_result, self.credit_dividende_determine_result, self.credit_personne_charge_result, self.credit_salaire_result, self.credit_cad_emploi_result, self.credit_transfere_result]
+      message = ""
+      credits = 0
+      for i in range(len(array)):
+        credits += array[i]
+        if not array[i] == 0:
+          message += f"{round(array[i])} + "
+      self.credits_result = credits
+      message = message[:-3]
+      print(f"[INFO] credits {message} = {round(credits)}")
+      return message</pre></li>
   </ul>
 </div>
 
