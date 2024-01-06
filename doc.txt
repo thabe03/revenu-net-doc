@@ -10,3 +10,5 @@ niveau d'importance décroissant
 <u> : négation, adjectif # les frais de scolarité sont admissibles à un crédit d'impôt, AP, ne ... pas, premiers acheteurs seulement, Si
 
 <a href="">param dans fonction()</a>
+
+crédit d'impôt : admissibilité, maximum, explication du calcul, exception si présent, prérequis

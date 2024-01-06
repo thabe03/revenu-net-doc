@@ -43,7 +43,7 @@
     </tr>
     <tr>
       <td>Double</td>
-      <td><a href="#sb">sb(double salaire_net = 0, double impot_revenu_fed_prov = 0, double rrq = 0, double ass_emploi = 0, double ass_parentale = 0, double rpa = 0, double cot_syndic = 0, double ass_collectif = 0)</a><br>Impôt sur le revenu fédéral et provincial, le régime de rente du Québec, l'assurance-emploi, le régime québécois d'assurance parentale, le régime de pension agréé <a href="#rbe">non imposable</a>, la cotisation syndicale <a href="#dah">déclarer dans dah</a>.<br><i>Salaire net plus <u><b>déduction</b></u> à la source.</i></td>
+      <td><a href="#sb">sb(double salaire_net = 0, double impot_revenu_fed_prov = 0, double rrq = 0, double ass_emploi = 0, double ass_parentale = 0, double rpa = 0, double cot_syndic = 0, double ass_collectif = 0)</a><br>Impôt sur le revenu fédéral et provincial, la cotisation au régime de rente du Québec, la cotisation à l'assurance-emploi, la cotisation au le régime québécois d'assurance parentale, la cotisation au régime de pension agréé <a href="#rbe">non imposable</a>, la cotisation syndicale <a href="#dah">déclarer dans dah</a>.<br><i>Salaire net plus <u><b>déduction</b></u> à la source.</i></td>
     </tr>
     <tr>
       <td>Double</td>
@@ -55,7 +55,7 @@
     </tr>
     <tr>
       <td>Double</td>
-      <td><a href="#dah">dah(double depense_ext = 0, double cot_syndic = 0, double rpa = 0, double bureau_centre_ville = 0, double cot_professionnelle = 0, double don = 0, double frais_cartes_affaires = 0)</a><br>Dépenses à l'extérieur de l'établissement Hébergement Transport autre que la voiture encourus pour le compte de l'employeur alors que l'employé était à l'extérieur de l'établissement, la cotisation syndicale, paiement au régime de pension agréé, les dépenses de bureau <i>utiliser <a href="#bure">bure</a></i>, la cotisation professionnelle, les dons sont <i><u><b>non déductibles</b></u></i> mais donnent droit à un <i><u><b>crédit d'impôt</b></u></i>, les frais de cartes d'affaires sont <i><u><b>non déductibles</b></u></i><br><i>Mention <u>obligatoire</u> après la fonction <a href="#rbe">rbe</a></i>.</td>
+      <td><a href="#dah">dah(double depense_ext = 0, double cot_syndic = 0, double rpa = 0, double bureau_centre_ville = 0, double cot_professionnelle = 0, double don = 0, double frais_cartes_affaires = 0)</a><br>Dépenses à l'extérieur de l'établissement Hébergement Transport autre que la voiture encourus pour le compte de l'employeur alors que l'employé était à l'extérieur de l'établissement, la cotisation syndicale, cotisation au régime de pension agréé <a href="#sb"><u><i><b>si</b> on donne le rpa et le salaire sans les autres déductions. Autrement déclarer dans sb()</i></u></a>, les dépenses de bureau <i>utiliser <a href="#bure">bure</a></i>, la cotisation professionnelle, les dons sont <i><u><b>non déductibles</b></u></i> mais donnent droit à un <i><u><b>crédit d'impôt</b></u></i>, les frais de cartes d'affaires sont <i><u><b>non déductibles</b></u></i><br><i>Mention <u>obligatoire</u> après la fonction <a href="#rbe">rbe</a></i>.</td>
     </tr>
     <tr>
       <td>Double</td>
